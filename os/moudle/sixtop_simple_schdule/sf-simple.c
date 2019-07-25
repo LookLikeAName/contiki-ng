@@ -1197,8 +1197,10 @@ PROCESS_THREAD(sf_link_maintain_and_realocate_retry, ev, data)
 static void
 init(void)
 {
+  #if SF_SIX_TOP_ENABLE_RELOCATE
   sf_parent_switch_done = process_alloc_event();
   process_start(&sf_link_maintain_and_realocate_retry,NULL);
+  #endif
 }
 const sixtop_sf_t sf_simple_driver = {
   SF_SIMPLE_SFID,

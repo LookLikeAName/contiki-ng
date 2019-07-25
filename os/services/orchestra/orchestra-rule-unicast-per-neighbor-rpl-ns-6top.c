@@ -85,7 +85,7 @@ add_uc_link(const linkaddr_t *linkaddr)
     //print_child_list();
     
     if(node){
-      if(!slot_is_used(timeslot)){
+      if(SF_SIX_TOP_ENABLE_RELOCATE?(!slot_is_used(timeslot)):1){
       child_list_set_child_offsets(node,timeslot,channel_offset);
      /* Add/update link */
       tsch_schedule_add_link(sf_unicast_sixtop, link_options, LINK_TYPE_NORMAL, &tsch_broadcast_address,
